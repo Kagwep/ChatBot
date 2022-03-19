@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'testbi',
+    'channels',
      'chatterbot.ext.django_chatterbot',
 ]
 
@@ -69,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'testb.wsgi.application'
+ASGI_APPLICATION = 'testb.asgi.application'
 
 
 # Database

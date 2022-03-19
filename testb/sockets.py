@@ -9,14 +9,21 @@ from chatterbot.trainers import ListTrainer
 elena = ChatBot('elena')
 
 # bot trainer
+questions=[
+    'Hi',
+    'Hello',
+    'I need roadmap for Competitive Programming',
+    'Just create an account on GFG and start',
+    'I have a query.',
+    'Please elaborate, your concern',
+    'How long it will take to become expert in Coding ?',
+    'It usually depends on the amount of practice.',
+    'Ok Thanks',
+    'No Problem! Have a Good Day!'
+]
 trainer = ListTrainer(elena)
 
-questions = [
-    'hi',
-    'hello',
-    'how are you doing',
-    'fine'
-]
+
 
 trainer.train(questions)
 
@@ -43,6 +50,6 @@ async def router(websocket, path):
 	# elif path == '/render':
 	# 	await render(websocket, path)
 
-asyncio.get_event_loop().run_until_complete(websockets.serve(router, '0.0.0.0', 8765))
+asyncio.get_event_loop().run_until_complete(websockets.serve(router, '0.0.0.0', 8000))
 
 asyncio.get_event_loop().run_forever()

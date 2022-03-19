@@ -1,4 +1,16 @@
 // Collapsible
+let loc = window.location
+let wsStart = 'ws://'
+
+if(loc.protocol == 'https'){
+    wsStart = 'wss://'
+}
+
+let endpoint = wsStart + loc.host + loc.pathname
+
+var socket = new WebSocket(endpoint)
+
+
 var coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
@@ -44,20 +56,46 @@ function firstBotMessage() {
     document.getElementById("userInput").scrollIntoView(false);
 }
 
+
 firstBotMessage();
 
+function getBotResponse(input) {
+    let message = input;
+
+    let data = {
+        'message' : message
+    }
+    data = JSON.stringify(data)
+    socket.send(data)
+   
+    res = '';
+    if (res == res) {
+        return res;
+    }
+ 
+}
 // Retrieves the response
 function getHardResponse(userText) {
     let botResponse = getBotResponse(userText);
-    let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
-    $("#chatbox").append(botHtml);
+    socket.onmessage = async function(e){
+        console.log('message', e)
+        let data = JSON.parse(e.data)
+        let message1 = data['message']
+        myGlobalVar = message1;
+        botResponse = myGlobalVar;
+        let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+        $("#chatbox").append(botHtml);
+    
+        document.getElementById("chat-bar-bottom").scrollIntoView(true);
+        
+    }
 
-    document.getElementById("chat-bar-bottom").scrollIntoView(true);
 }
 
 //Gets the text text from the input box and processes it
 function getResponse() {
     let userText = $("#textInput").val();
+    console.log(userText);
 
     if (userText == "") {
         userText = "I love Code Palace!";
@@ -97,10 +135,21 @@ function sendButton() {
 function heartButton() {
     buttonSendText("Heart clicked!")
 }
+socket.onopen =  async function(e){
+    console.log('open', e)
+    $("#textInput").keypress(function (e) {
+        if (e.which == 13) {
+            getResponse();
+        }
+    });
+}
 
+
+socket.onerror = async function(e){
+    console.log('error', e)
+}
+
+socket.onclose = async function(e){
+    console.log('close', e)
+}
 // Press enter to send a message
-$("#textInput").keypress(function (e) {
-    if (e.which == 13) {
-        getResponse();
-    }
-});
