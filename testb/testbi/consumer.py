@@ -9,12 +9,13 @@ elena = ChatBot('elena')
 
 # bot trainer
 questions=[
-    'Hi',
-    'Hello',
-    'I need roadmap for Competitive Programming',
-    'Just create an account on GFG and start',
-    'I have a query.',
+    'yes',
+    'What was the lesson about.',
+    'List five things you learnt from the video',
+    'What was the title of the lesson',
+    'Where can you aquire the knowledge acquired in this tutorial.',
     'Please elaborate, your concern',
+    'How are you feeling today by the way',
     'How long it will take to become expert in Coding ?',
     'It usually depends on the amount of practice.',
     'Ok Thanks',

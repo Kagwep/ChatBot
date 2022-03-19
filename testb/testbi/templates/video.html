@@ -4,12 +4,10 @@
         {% for x in video %}
         <hr>
         <h3 class="text-center mt-2 mb-2">{{x.caption}}</h3>
-        <video id="myVideo" class="embed-responsive embed-responsive-16by9" controls = 'controls' >
+        <video id="myVideo" name="myVideo" class="embed-responsive embed-responsive-16by9" controls = 'controls' onended="videoEnded()">
             <source src="{{x.video.url}}" type="video/mp4" />
         </video>
         {% endfor %}
     </div>
-    <div id='here'>{{var_name}}</div>
-    <input type="text" id="name" placeholder="" />
 
     {% endblock %}

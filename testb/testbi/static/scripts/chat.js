@@ -12,7 +12,15 @@ var socket = new WebSocket(endpoint)
 
 
 var coll = document.getElementsByClassName("collapsible");
+var video = $("#myVideo");
+video.on('play', function(e){
+    var a = $("#myVideo source").attr("src");
+    console.log(a);
+});
+function videoEnded() {
 
+    document.getElementsByClassName('collapsible')[0].click();
+}
 for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
@@ -47,13 +55,15 @@ function getTime() {
 
 // Gets the first message
 function firstBotMessage() {
-    let firstMessage = "How's it going?"
+    let firstMessage = "Hi👋👋, My name is Elena, your tutor bot👩‍💻,I hope you had a great lesson.\
+                        I am now going to ask you some questions to test your understanding.\
+                        ready?😎😎"
     document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
 
     let time = getTime();
 
     $("#chat-timestamp").append(time);
-    document.getElementById("userInput").scrollIntoView(false);
+    document.getElementById("userInput").scrollIntoView(false); 
 }
 
 
