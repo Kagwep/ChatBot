@@ -1,0 +1,3 @@
+pip install youtube_transcript_api
+pip install punctuator
+pip install nltk
