@@ -5,6 +5,8 @@ from embed_video.fields import EmbedVideoField
 class Video(models.Model):
     title = models.CharField(max_length=300)
     video = video = models.FileField(upload_to="video/%y")
+    description = models.TextField()
+    instructor = models.CharField(max_length=300)
     added = models.DateTimeField(auto_now_add=True)
     youtube_url = models.CharField(max_length=300) # same like models.URLField()
     def __str__(self) :

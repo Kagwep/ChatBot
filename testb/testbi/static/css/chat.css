@@ -3,6 +3,7 @@
     bottom: 0;
     right: 50px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    
    
 }
 
@@ -25,6 +26,7 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
+    
 }
 
 .full-chat-block {
@@ -41,6 +43,7 @@
     min-height: 500px;
     bottom: 0%;
     position: relative;
+    
 }
 
 .chat-container {
@@ -51,6 +54,7 @@
     left: 0;
     scroll-behavior: smooth;
     hyphens: auto;
+    
 }
 
 .chat-container::-webkit-scrollbar {
