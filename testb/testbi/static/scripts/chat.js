@@ -13,12 +13,28 @@ var socket = new WebSocket(endpoint)
 
 var coll = document.getElementsByClassName("collapsible");
 var video = $("#myVideo");
-video.on('play', function(e){
-    var a = $("#myVideo source").attr("src");
-    console.log(a);
-});
-function videoEnded() {
+function onStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED){
+        document.getElementsByClassName('collapsible')[0].click();
+    }
+  }
 
+
+  function myFunction() {
+
+    let webid = $("#webIDInput").val();
+    console.log(webid)
+    
+     let vid_file = webid;
+
+     let data = {
+         'message' : vid_file
+     }
+     data = JSON.stringify(data)
+     socket.send(data)
+     
+}
+function videoEnded() {
     document.getElementsByClassName('collapsible')[0].click();
 }
 for (let i = 0; i < coll.length; i++) {
@@ -163,3 +179,5 @@ socket.onclose = async function(e){
     console.log('close', e)
 }
 // Press enter to send a message
+
+  

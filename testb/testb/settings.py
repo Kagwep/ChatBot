@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'testbi',
     'channels',
+    'embed_video',
      'chatterbot.ext.django_chatterbot',
 ]
 

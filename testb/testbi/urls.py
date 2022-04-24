@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
 
     path('', views.response),
+    path('<str:pk>', views.ViewTurorial, name = "view-tutorial"),
     
     
 ]

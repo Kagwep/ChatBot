@@ -22,7 +22,7 @@ from .settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('testbi.urls'))
+    path('watch/', include('testbi.urls'))
 ]
 
 if settings.DEBUG:

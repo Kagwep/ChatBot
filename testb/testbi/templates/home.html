@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h3 class="text-center mt-2 mb-2">{{video.title}}</h3>
+<div id="my_Video">
+   
+        <video  onplay="myFunction()" id="myVideo" class="myclass embed-responsive embed-responsive-16by9" onended="videoEnded()" controls = 'controls' >
+            <source src="{{video.video.url}}" type="video/mp4" />
+        </video>
+        <div id="webInput">
+            <input id="webIDInput"  value="{{video.youtube_url}}" class="input-box" type="text" name="msgs"
+                placeholder="video id">
+            <p></p>
+        </div>
+ 
+
+</div>
+
+{% endblock content %}
