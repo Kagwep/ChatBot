@@ -128,7 +128,7 @@ class ChatConsumer(AsyncConsumer):
             
             if len(ask) == 0:
                
-                chat_response = "Please wath the tutorial to the end."
+                chat_response = "Please watch or re-watch the tutorial to the end to take a test."
             else:
                 with open("resco/score.txt","r",encoding="utf8") as f:#
                         n_data = f.readlines()
@@ -235,6 +235,7 @@ class ChatConsumer(AsyncConsumer):
                     n_data2 = []
                     m_data2 = []
                     s_data2 = []
+                    ask = []
                     with open('resco/score.txt','w') as f:
                         f.writelines('\n'.join(n_data2))
                         f.close()
