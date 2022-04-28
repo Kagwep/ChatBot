@@ -179,7 +179,7 @@ class ChatConsumer(AsyncConsumer):
                         with open('resco/scorecheck.txt','w') as f:
                             f.writelines('\n'.join(s_data1))
                             f.close()
-                    resp = "<b>Fill in the blacks. Reply with A or B accoriding to the answer selected</b> <br/>" + str((quiz )+ '<font color="green"> ' + '<br/>'  + 'A: ' + str(option_a) +'<br/>' + "B:" + str(option_b)) + '</font>'
+                    resp = "<b>Fill in the blanks. Reply with A or B accoriding to the answer selected</b> <br/>" + str((quiz )+ '<font color="green"> ' + '<br/>'  + 'A: ' + str(option_a) +'<br/>' + "B:" + str(option_b)) + '</font>'
 
                     chat_response = resp 
                     if str(msg).lower() == 'a':
