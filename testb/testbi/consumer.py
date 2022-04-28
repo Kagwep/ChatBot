@@ -206,8 +206,6 @@ class ChatConsumer(AsyncConsumer):
                 else:
                     total_marks= 10
                     marks = 0
-                    # print(s_data)
-                    # print(m_data)
                     for ans_ch in s_data:
                         num = s_data.index(ans_ch)
                         if num <= 9:
@@ -215,8 +213,6 @@ class ChatConsumer(AsyncConsumer):
                             ans_of_q = m_data[key2]
                             if ans_ch == ans_of_q:
                                  marks +=1
-                                # print(ans_ch)
-                                # print(ans_of_q)
                             else:
                                 marks = marks
                     marks_p = float((marks/total_marks)*100)
