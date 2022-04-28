@@ -140,7 +140,7 @@ class ChatConsumer(AsyncConsumer):
                         s_data = f.readlines()
                         f.close()
 
-                if len(n_data) <= 9:
+                if len(n_data) <= 10:
                     n_data.append('count')
                     n_data1 = []
                     for words1 in n_data:
@@ -192,7 +192,7 @@ class ChatConsumer(AsyncConsumer):
                             f.writelines('\n'.join(m_data1))
                             f.close()
                         
-                    else:
+                    if str(msg).lower() == 'b':
                         
                         m_data.append(msg)
                         m_data1 = []
@@ -206,17 +206,19 @@ class ChatConsumer(AsyncConsumer):
                 else:
                     total_marks= 10
                     marks = 0
-                    print(s_data)
-                    print(m_data)
+                    # print(s_data)
+                    # print(m_data)
                     for ans_ch in s_data:
-                        key2 = s_data.index(ans_ch)
-                        ans_of_q = m_data[key2]
-                        if ans_ch == ans_of_q:
-                            marks +=1
-                            print(ans_ch)
-                            print(ans_of_q)
-                        else:
-                            marks = marks
+                        num = s_data.index(ans_ch)
+                        if num <= 9:
+                            key2 = s_data.index(ans_ch)
+                            ans_of_q = m_data[key2]
+                            if ans_ch == ans_of_q:
+                                 marks +=1
+                                # print(ans_ch)
+                                # print(ans_of_q)
+                            else:
+                                marks = marks
                     marks_p = float((marks/total_marks)*100)
                     if marks_p <=20 :
                         mes = 'Please Watch the video again 🙂'
