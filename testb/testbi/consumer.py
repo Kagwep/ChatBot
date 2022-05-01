@@ -192,16 +192,27 @@ class ChatConsumer(AsyncConsumer):
                             f.writelines('\n'.join(m_data1))
                             f.close()
                         
-                    if str(msg).lower() == 'b':
+                    elif str(msg).lower() == 'b':
                         
                         m_data.append(msg)
                         m_data1 = []
-                        for words4 in s_data:
+                        for words4 in m_data:
                             m_data1.append(words4.strip())
                                                 
                         with open('resco/marks.txt','w') as f:
                             f.writelines('\n'.join(m_data1))
                             f.close()
+                    else:
+                        m_data.append(msg)
+                        m_data6 = []
+                        for words6 in m_data:
+                            m_data6.append(words6.strip())
+                                                
+                        with open('resco/marks.txt','w') as f:
+                            f.writelines('\n'.join(m_data6))
+                            f.close()
+
+                    
 
                 else:
                     total_marks= 10
@@ -215,8 +226,9 @@ class ChatConsumer(AsyncConsumer):
                                  marks +=1
                             else:
                                 marks = marks
+                    print(marks)
                     marks_p = float((marks/total_marks)*100)
-                    if marks_p <=20 :
+                    if marks_p >= 0 and marks_p <=20 :
                         mes = 'Please Watch the video again 🙂'
                     elif marks_p >=31 and marks_p < 50 :
                         mes = 'Nice work 👍'
